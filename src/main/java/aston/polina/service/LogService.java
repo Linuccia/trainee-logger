@@ -26,7 +26,7 @@ public class LogService {
 
     public Log saveLog(Integer studentId, Log log) {
         Student student = studentRepository.getById(studentId);
-        if ( student == null) {
+        if (student == null) {
             return null;
         }
         log.setStudent(student);

@@ -7,8 +7,11 @@ import java.util.List;
 public interface StudentRepository {
 
     Student getById(Integer id);
+
     List<Student> getAll();
+
     Student save(Student student);
+
     Student deleteById(Integer id);
 
 }
