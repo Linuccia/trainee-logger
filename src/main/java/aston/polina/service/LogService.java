@@ -15,10 +15,14 @@ import java.util.List;
 @Transactional
 public class LogService {
 
+    private final LogRepository logRepository;
+    private final StudentRepository studentRepository;
+
     @Autowired
-    private LogRepository logRepository;
-    @Autowired
-    private StudentRepository studentRepository;
+    public LogService(LogRepository logRepository, StudentRepository studentRepository) {
+        this.logRepository = logRepository;
+        this.studentRepository = studentRepository;
+    }
 
     public List<Log> getLogsByStudentId(Integer studentId) {
         return logRepository.getAllByStudentId(studentId);

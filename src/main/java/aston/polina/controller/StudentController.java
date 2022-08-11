@@ -19,8 +19,12 @@ import java.util.List;
 @RequestMapping("/students")
 public class StudentController {
 
+    private final StudentService service;
+
     @Autowired
-    private StudentService service;
+    public StudentController(StudentService service) {
+        this.service = service;
+    }
 
     @PostMapping
     public Student addStudent(@RequestBody Student student) {
@@ -30,7 +34,7 @@ public class StudentController {
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> removeStudent(@PathVariable Integer id) {
         return service.deleteStudent(id) ? new ResponseEntity<>(HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @GetMapping

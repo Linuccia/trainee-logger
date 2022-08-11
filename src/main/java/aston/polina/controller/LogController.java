@@ -17,8 +17,12 @@ import java.util.List;
 @RequestMapping("/students/{studentId}/logs")
 public class LogController {
 
+    private final LogService service;
+
     @Autowired
-    private LogService service;
+    public LogController(LogService service) {
+        this.service = service;
+    }
 
     @PostMapping
     public Log addLog(@PathVariable Integer studentId, @RequestBody Log log) {

@@ -1,4 +1,3 @@
 .idea
 target
 db.script
-src/main/resources/db

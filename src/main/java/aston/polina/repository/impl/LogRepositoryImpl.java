@@ -16,7 +16,7 @@ import java.util.List;
 @Repository
 public class LogRepositoryImpl implements LogRepository {
 
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
     public LogRepositoryImpl(SessionFactory sessionFactory) {

@@ -12,8 +12,12 @@ import java.util.List;
 @Transactional
 public class StudentService {
 
+    private final StudentRepository repository;
+
     @Autowired
-    private StudentRepository repository;
+    public StudentService(StudentRepository repository) {
+        this.repository = repository;
+    }
 
     public Student saveStudent(Student student) {
         return repository.save(student);
